@@ -1,0 +1,24 @@
+{
+  "name": "kaamka-dost",
+  "version": "1.0.0",
+  "description": "KaamKa Dost - Everyday digital assistant for Indian users. Har chhote kaam ka, ek smart dost.",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "test": "node tests/app.test.js"
+  },
+  "keywords": [
+    "kaamka-dost",
+    "indian-assistant",
+    "hindi",
+    "urdu",
+    "multilingual",
+    "screenshot-helper",
+    "letter-maker",
+    "pwa"
+  ],
+  "author": "KaamKa Dost Team",
+  "license": "MIT"
+}

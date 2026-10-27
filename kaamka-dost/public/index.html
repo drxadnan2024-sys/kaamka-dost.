@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#6d28d9" />
+  <meta name="description" content="कामका दोस्त (KaamKa Dost) - Everyday digital assistant for Indian users. Har chhote kaam ka, ek smart dost." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <title>कामका दोस्त (KaamKa Dost) - हर छोटे काम का, एक स्मार्ट दोस्त</title>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Tailwind CSS CDN with Custom Theme Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-purple-200 selection:text-purple-900">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="no-print"></div>
+
+  <!-- Main App Shell -->
+  <div class="min-h-screen flex flex-col md:flex-row">
+
+    <!-- DESKTOP SIDEBAR (Visible on md and above) -->
+    <aside class="hidden md:flex flex-col w-64 lg:w-72 bg-white border-r border-slate-200 h-screen sticky top-0 z-30 p-5 space-y-6 flex-shrink-0 no-print">
+      <!-- App Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-200 group-hover:scale-105 transition">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-slate-900 text-lg leading-tight tracking-tight">कामका दोस्त</h1>
+          <p class="text-[11px] font-semibold text-purple-700">KaamKa Dost</p>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="flex-1 space-y-1 overflow-y-auto">
+        <button type="button" data-nav-target="home" class="desktop-sidebar-item w-full">
+          <span class="text-lg">🏠</span>
+          <span class="text-sm">होम (Home)</span>
+        </button>
+
+        <button type="button" data-nav-target="screenshot" class="desktop-sidebar-item w-full">
+          <span class="text-lg">📸</span>
+          <span class="text-sm">AI स्क्रीनशॉट सहायक</span>
+        </button>
+
+        <button type="button" data-nav-target="letters" class="desktop-sidebar-item w-full">
+          <span class="text-lg">✍️</span>
+          <span class="text-sm">आवेदन व पत्र निर्माता</span>
+        </button>
+
+        <button type="button" data-nav-target="assistant" class="desktop-sidebar-item w-full">
+          <span class="text-lg">🌐</span>
+          <span class="text-sm">13 भाषा AI सहायक</span>
+        </button>
+
+        <button type="button" data-nav-target="guides" class="desktop-sidebar-item w-full">
+          <span class="text-lg">📱</span>
+          <span class="text-sm">फोन व ऐप गाइड्स</span>
+        </button>
+
+        <button type="button" data-nav-target="tools" class="desktop-sidebar-item w-full">
+          <span class="text-lg">🧮</span>
+          <span class="text-sm">दैनिक उपयोगी टूल्स</span>
+        </button>
+
+        <button type="button" data-nav-target="community" class="desktop-sidebar-item w-full">
+          <span class="text-lg">🤝</span>
+          <span class="text-sm">मदद मंच (Help Board)</span>
+        </button>
+
+        <button type="button" data-nav-target="profile" class="desktop-sidebar-item w-full">
+          <span class="text-lg">👤</span>
+          <span class="text-sm">प्रोफाइल व सेटिंग्स</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Footer Info -->
+      <div class="pt-4 border-t border-slate-100 space-y-2">
+        <div class="bg-purple-50 p-3 rounded-2xl border border-purple-100 text-[11px] text-purple-800 space-y-0.5">
+          <div class="font-bold">🇮🇳 भारतीय डिजिटल साथी</div>
+          <div class="text-purple-600">हर छोटे काम का, एक स्मार्ट दोस्त</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN APP CONTENT WRAPPER -->
+    <div class="flex-1 flex flex-col min-w-0">
+
+      <!-- TOP HEADER (Mobile & Desktop) -->
+      <header class="glass-header sticky top-0 z-20 px-4 sm:px-8 py-3.5 flex items-center justify-between gap-3 no-print">
+        <!-- Left: Mobile Brand & Search -->
+        <div class="flex items-center gap-3 flex-1 max-w-xl">
+          <!-- Mobile Brand Logo -->
+          <a href="#home" class="md:hidden flex items-center gap-2 flex-shrink-0">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white shadow-sm">
+              <span class="text-base font-bold">KD</span>
+            </div>
+          </a>
+
+          <!-- Global Search Input with Shortcut -->
+          <div class="relative flex-1">
+            <input type="text" id="global-search-input" placeholder="समस्या या टूल खोजें (उदा. PhonePe, छुट्टी पत्र, उम्र)..." class="w-full pl-9 pr-10 py-2 rounded-xl border border-slate-200 bg-white/80 focus:bg-white text-xs sm:text-sm outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition" />
+            <span class="absolute left-3 top-2.5 text-slate-400 text-xs">🔍</span>
+            <kbd class="hidden sm:inline-block absolute right-2.5 top-2 px-1.5 py-0.5 text-[10px] font-mono bg-slate-100 text-slate-500 rounded border border-slate-200">/</kbd>
+
+            <!-- Search Autocomplete Dropdown -->
+            <div id="search-results-dropdown" class="hidden absolute left-0 right-0 top-full mt-1.5 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden z-50"></div>
+          </div>
+        </div>
+
+        <!-- Right: Language Selector & PWA Install Button -->
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <!-- 13 Language Selector Dropdown -->
+          <div class="relative">
+            <select id="header-lang-select" class="text-xs font-semibold bg-white border border-slate-200 rounded-xl px-2.5 py-2 outline-none focus:border-purple-500 cursor-pointer shadow-sm text-slate-700">
+              <option value="hi">हिंदी (Hindi)</option>
+              <option value="en">English</option>
+              <option value="ur">اردو (Urdu)</option>
+              <option value="mr">मराठी (Marathi)</option>
+              <option value="bn">বাংলা (Bengali)</option>
+              <option value="ta">தமிழ் (Tamil)</option>
+              <option value="te">తెలుగు (Telugu)</option>
+              <option value="gu">ગુજરાતી (Gujarati)</option>
+              <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+              <option value="kn">ಕನ್ನಡ (Kannada)</option>
+              <option value="ml">മലയാളം (Malayalam)</option>
+              <option value="or">ଓଡ଼ିଆ (Odia)</option>
+              <option value="as">অসমীয়া (Assamese)</option>
+            </select>
+          </div>
+
+          <!-- Install PWA Button (Shown on supported browsers) -->
+          <button type="button" id="pwa-install-btn" class="hidden px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-semibold rounded-xl shadow-sm hover:opacity-90 transition flex items-center gap-1">
+            <span>📲</span> ऐप इंस्टॉल करें
+          </button>
+        </div>
+      </header>
+
+      <!-- DYNAMIC MAIN VIEW CONTAINER -->
+      <main id="main-view-container" class="flex-1 p-4 sm:p-8 pb-24 md:pb-8">
+        <!-- Rendered dynamically by app.js router -->
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="bg-white border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-500 space-y-2 no-print">
+        <p class="font-medium text-slate-700">कामका दोस्त (KaamKa Dost) • "हर छोटे काम का, एक स्मार्ट दोस्त"</p>
+        <p class="text-[11px] text-slate-400">100% भारतीय उपयोगकर्ताओं के लिए समर्पित • सुरक्षित, पारदर्शी और विज्ञापन-मुक्त</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAVIGATION (Visible on mobile only) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 bottom-nav z-40 safe-bottom no-print">
+    <div class="flex items-center justify-around h-16 px-1">
+      <!-- 1. Home -->
+      <button type="button" data-nav-target="home" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-purple-600 font-bold">
+        <span class="text-xl">🏠</span>
+        <span class="text-[10px] mt-0.5">होम</span>
+      </button>
+
+      <!-- 2. AI Screenshot -->
+      <button type="button" data-nav-target="screenshot" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-slate-400">
+        <span class="text-xl">📸</span>
+        <span class="text-[10px] mt-0.5">स्क्रीनशॉट</span>
+      </button>
+
+      <!-- 3. Letters -->
+      <button type="button" data-nav-target="letters" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-slate-400">
+        <span class="text-xl">✍️</span>
+        <span class="text-[10px] mt-0.5">आवेदन पत्र</span>
+      </button>
+
+      <!-- 4. Tools -->
+      <button type="button" data-nav-target="tools" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-slate-400">
+        <span class="text-xl">🧮</span>
+        <span class="text-[10px] mt-0.5">टूल्स</span>
+      </button>
+
+      <!-- 5. Guides -->
+      <button type="button" data-nav-target="guides" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-slate-400">
+        <span class="text-xl">📱</span>
+        <span class="text-[10px] mt-0.5">गाइड्स</span>
+      </button>
+
+      <!-- 6. Profile / More -->
+      <button type="button" data-nav-target="profile" class="mobile-nav-item flex flex-col items-center justify-center flex-1 py-1 text-slate-400">
+        <span class="text-xl">👤</span>
+        <span class="text-[10px] mt-0.5">प्रोफाइल</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Core App Entrypoint -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

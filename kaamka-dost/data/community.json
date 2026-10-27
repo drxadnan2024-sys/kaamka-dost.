@@ -1,0 +1,62 @@
+[
+  {
+    "id": "post_1",
+    "title": "PhonePe payment successful but merchant says not received - what to do?",
+    "title_hindi": "PhonePe में पैसे कट गए पर दुकानदार को नहीं मिले - क्या करें?",
+    "category": "Phone Issues",
+    "author": "Ramesh Sharma, Jaipur",
+    "date": "2026-10-25",
+    "description": "Paid ₹350 at grocery shop. Money deducted from SBI account, green tick appeared on PhonePe, but merchant soundbox did not ring.",
+    "upvotes": 42,
+    "answers": [
+      {
+        "id": "ans_1",
+        "author": "KaamKa Dost Assistant",
+        "is_verified": true,
+        "date": "2026-10-25",
+        "text": "1. Take a screenshot of the green tick page showing the 12-digit UTR number.\n2. In 95% of cases, the merchant's soundbox was on mute or delayed by 2 minutes. Ask the merchant to check their merchant app history.\n3. Do NOT pay cash immediately. If merchant forces, show the UTR number. If money doesn't settle within 24-48 hours, RBI rules mandate automatic reversal to your bank."
+      }
+    ],
+    "reports": 0
+  },
+  {
+    "id": "post_2",
+    "title": "Received SMS: 'Electricity will be disconnected at 9:30 PM due to unpaid bill'",
+    "title_hindi": "बिजली कटने का SMS आया है - क्या यह फ्रॉड है?",
+    "category": "Online Safety",
+    "author": "Pooja Verma, Lucknow",
+    "date": "2026-10-26",
+    "description": "Got an SMS with a personal 10-digit mobile number asking to call urgently or click a link to update electricity bill. My bill was already paid on Bijli app.",
+    "upvotes": 89,
+    "answers": [
+      {
+        "id": "ans_2",
+        "author": "Cyber Safety Guide",
+        "is_verified": true,
+        "date": "2026-10-26",
+        "text": "🚨 100% FRAUD / SCAM! Electricity boards never send SMS from personal 10-digit mobile numbers or WhatsApp. They only send from official alphanumeric sender IDs (like UPPCL, DHBVN, BESCOM). Never call that number or install any app (AnyDesk/TeamViewer). Block the number immediately."
+      }
+    ],
+    "reports": 0
+  },
+  {
+    "id": "post_3",
+    "title": "How to clean WhatsApp storage when phone says 98% full?",
+    "title_hindi": "WhatsApp स्टोरेज कैसे खाली करें बिना फोटो डिलीट किए?",
+    "category": "App Queries",
+    "author": "Deepak Patel, Ahmedabad",
+    "date": "2026-10-27",
+    "description": "My Samsung phone is lagging terribly. In Settings > Storage, WhatsApp is taking 24 GB.",
+    "upvotes": 35,
+    "answers": [
+      {
+        "id": "ans_3",
+        "author": "Tech Dost",
+        "is_verified": true,
+        "date": "2026-10-27",
+        "text": "Open WhatsApp > Settings > Storage and Data > Manage Storage. Here you will see 'Files larger than 5 MB' and 'Forwarded many times'. Delete those forward videos first! They take 80% of space and you will not lose personal family photos."
+      }
+    ],
+    "reports": 0
+  }
+]
